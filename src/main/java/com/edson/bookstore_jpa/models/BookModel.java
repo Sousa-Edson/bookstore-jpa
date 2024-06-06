@@ -18,6 +18,9 @@ public class BookModel implements Serializable {
     @Column(nullable = false,unique = true)
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private PublisherModel publisher;
 
 
 }
