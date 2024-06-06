@@ -6,8 +6,8 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.UUID;
 
-@Entity
 @Data
+@Entity
 @Table(name = "TB_PUBLISHER")
 public class PublisherModel implements Serializable {
     private static final long serialVersionUID = 1L;

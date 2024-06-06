@@ -5,19 +5,17 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.UUID;
+
 @Data
 @Entity
-@Table(name = "TB_BOOK")
-public class BookModel implements Serializable {
+@Table(name = "TB_AUTHOR")
+public class AuthorModel  implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID uuid;
+    private UUID id;
 
     @Column(nullable = false,unique = true)
-    private String title;
-
-
-
+    private String name;
 }
