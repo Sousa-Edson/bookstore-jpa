@@ -3,13 +3,16 @@ package com.edson.bookstore_jpa.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_PUBLISHER")
 public class PublisherModel implements Serializable {
@@ -17,7 +20,7 @@ public class PublisherModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID uuid;
+    private UUID id;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -25,5 +28,4 @@ public class PublisherModel implements Serializable {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
     private Set<BookModel> books = new HashSet<>();
-
 }

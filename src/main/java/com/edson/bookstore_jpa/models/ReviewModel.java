@@ -3,11 +3,14 @@ package com.edson.bookstore_jpa.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_REVIEW")
 public class ReviewModel implements Serializable {
@@ -17,7 +20,7 @@ public class ReviewModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String comment;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
